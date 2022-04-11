@@ -1,9 +1,12 @@
 package com.sip.ams.controllers;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,7 +57,19 @@ public class StockController {
 	 @GetMapping("add")
 	    public String showAddStockForm(Stock stock, Model model) {
 	  	    	model.addAttribute("articles", articleRepository.findAll());
-	          	model.addAttribute("stock", new Stock());
+	  	    
+	      System.out.println("la date du jour "+ new Date());
+	    
+
+	   
+	      Date date = new Date();
+	  	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+	  	String strDate= formatter.format(date);
+	  	System.out.println(strDate);
+	      
+	      System.out.println(strDate);
+	      stock.setDate(strDate);
+	         model.addAttribute("stock", stock);
 	        return "stock/addStock";
 	    }
 	 

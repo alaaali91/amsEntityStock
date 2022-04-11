@@ -1,5 +1,7 @@
 package com.sip.ams.entities;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,7 +29,7 @@ public class Stock {
 	    @Column(name = "name")
 	    private String name;
 	   
-	   @NotBlank(message = "Date is mandatory")
+	   @NotBlank(message = "date is mandatory")
 	    @Column(name = "date")
 	    private String date;
 	   
